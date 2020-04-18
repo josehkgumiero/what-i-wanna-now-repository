@@ -1,0 +1,60 @@
+<div class="container-fluid">
+
+    <form [formGroup]="formGroup">
+
+        <div class="container-fluid pt-5">
+
+            <div class="form-group">
+
+                <div class="container-fluid">
+
+                    <div class="d-flex flex-row align-items-center">
+
+                        <div class="row">
+
+                            <div class="d-flex align-items-center alert alert-dark mr-5">Tought</div>
+
+                            <button *ngIf="conditionShowButtonCreate" class="btn btn-outline-dark mr-5" (click)="clickAddWish()">Create a tought?</button>
+
+                            <button *ngIf="conditionShowButtonMake" class="btn btn-outline-success"
+                                (click)="clickAddWish()">Make it!</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div formArrayName="toughtInput" *ngFor="let wish of formGroup.controls.toughtInput?.value; let i = index;">
+
+                <div class="card border-light pt-3 pl-3 pr-3 mb-3">
+
+                    <ng-container [formGroupName]="i">
+
+                        <div class="form-group">
+
+                            <input class="form-control" placeholder="title" formControlName="title">
+                        
+                        </div>
+                        
+                        <div class="form-group">
+                        
+                            <input class="form-control" placeholder="description" formControlName="description">
+                        
+                        </div>
+
+                    </ng-container>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+
